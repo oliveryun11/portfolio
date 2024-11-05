@@ -1,5 +1,6 @@
 import { projects } from '@/data/projects';
 import Link from 'next/link';
+import { HiArrowUpRight } from "react-icons/hi2";
 
 export default function Projects() {
 
@@ -12,21 +13,23 @@ export default function Projects() {
             <h2 className="text-2xl font-bold mb-6">Projects</h2>
             <div className="grid gap-6">
                 {allBlogPosts.map((post) => (
-                    <article key={post.slug} className="border border-secondary rounded-lg p-6">
-                        <Link href={`/blog/${post.slug}`}>
-                            <h2 className="text-xl font-bold mb-2 hover:text-foreground/80">
-                                {post.title}
-                            </h2>
-                        </Link>
-                        <time className="text-sm text-foreground/60">
-                            {new Date(post.date).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
-                        </time>
-                        <p className="mt-2">{post.excerpt}</p>
-                    </article>
+                    <Link href={`/blog/${post.slug}`}>
+                        <article 
+                            key={post.slug} 
+                            className="border border-secondary rounded-lg p-6 transition-all duration-200 
+                                       hover:bg-secondary/20 hover:border-primary"
+                        >
+                            <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+                            <time className="text-sm text-foreground/60">
+                                {new Date(post.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </time>
+                            <p className="mt-2">{post.excerpt}</p>
+                        </article>
+                    </Link>
                 ))}
             </div>
         </div>

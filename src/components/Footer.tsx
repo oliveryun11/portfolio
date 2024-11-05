@@ -11,7 +11,7 @@ export default function Footer() {
                         target="_blank"
                         href="https://github.com/oliveryun11"
                     > 
-                        <HiArrowUpRight />
+                        <HiArrowUpRight className="w-4 h-4"/>
                         <p className="ml-2">github</p>
                     </a>
                 </li>
@@ -22,7 +22,7 @@ export default function Footer() {
                         target="_blank"
                         href="mailto:oliveryun11@gmail.com"
                     >
-                        <HiArrowUpRight />
+                        <HiArrowUpRight className="w-4 h-4"/>
                         <p className="ml-2">email</p>
                     </a>
                 </li>
