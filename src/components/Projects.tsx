@@ -1,4 +1,4 @@
-import { projects } from '@/data/projects';
+import { projects } from "@/lib/project";
 import { HiArrowUpRight } from "react-icons/hi2";
 export default function Projects() {
 
