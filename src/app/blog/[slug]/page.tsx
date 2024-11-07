@@ -60,9 +60,10 @@ export default async function BlogPost({ params }: Props) {
                     <div 
                         className="prose prose-invert max-w-none space-y-4
                             prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-8
-                            prose-p:text-foreground/80 prose-p:my-0
-                            prose-ul:my-2 prose-ul:pl-4 prose-ul:text-foreground/80
-                            prose-li:my-0 prose-li:marker:text-foreground/60"
+                            prose-p:text-foreground-secondary prose-p:my-0
+                            prose-ul:my-2 prose-ul:pl-4 prose-ul:text-foreground-secondary
+                            prose-li:my-0 prose-li:marker:text-foreground-secondary
+                            prose-a:text-foreground-secondary prose-a:hover:text-foreground"
                         dangerouslySetInnerHTML={{ __html: htmlContent }}
                     />
                 </article>

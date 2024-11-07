@@ -22,14 +22,14 @@ export default function BlogPage() {
                             >
                                 <Link href={`/blog/${post.slug}`}>
                                     <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                                    <time className="text-sm text-foreground/60 block mb-2">
+                                    <time className="text-foreground-secondary text-sm block mb-2">
                                         {new Date(post.date).toLocaleDateString('en-US', {
                                             year: 'numeric',
                                             month: 'long',
                                             day: 'numeric'
                                         })}
                                     </time>
-                                    <p className="text-foreground/80">{post.excerpt}</p>
+                                    <p className="text-foreground-secondary">{post.excerpt}</p>
                                 </Link>
                             </article>
                         ))}

@@ -14,7 +14,7 @@ export default function Projects() {
                         >
                             <div>
                                 <h2 className="text-xl font-bold mb-2">{project.title}</h2>
-                                <p className="text-foreground/80">{project.description}</p>
+                                <p className="text-foreground-secondary">{project.description}</p>
                             </div>
 
                             <div className="flex flex-wrap gap-2 -ml-1">
@@ -22,7 +22,7 @@ export default function Projects() {
                                 <span 
                                     key={tech}
                                     className="text-sm px-3 py-1 rounded-full bg-secondary/30 
-                                             text-foreground/80 border border-secondary/50"
+                                             text-foreground-secondary border border-secondary/50"
                                 >
                                     {tech}
                                 </span>
@@ -30,14 +30,14 @@ export default function Projects() {
                             </div>
 
                             {project.githubLink && (
-                            <a
-                                href={project.githubLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center text-sm hover:underline"
-                            >
-                                <HiArrowUpRight className="w-4 h-4"/>
-                                <span className="ml-1">View on GitHub</span>
+                                <a
+                                    href={project.githubLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center text-sm hover:text-foreground text-foreground-secondary"
+                                >
+                                    <HiArrowUpRight className="w-4 h-4"/>
+                                    <span className="ml-1">View on GitHub</span>
                                 </a>
                             )}
                         </article>
