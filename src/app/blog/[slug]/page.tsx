@@ -13,7 +13,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const slug = await Promise.resolve(params.slug);
+    const { slug } = await Promise.resolve(params);
     const blogData = getBlogPostWithProject(slug);
     if (!blogData) {
         return {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPost({ params }: Props) {
-    const slug = await Promise.resolve(params.slug);
+    const { slug } = await Promise.resolve(params);
     const blogData = getBlogPostWithProject(slug);
     
     if (!blogData) {
@@ -59,7 +59,7 @@ export default async function BlogPost({ params }: Props) {
                     
                     <div 
                         className="prose prose-invert max-w-none space-y-4
-                            prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-8
+                            prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-6
                             prose-p:text-foreground-secondary prose-p:my-0
                             prose-ul:my-2 prose-ul:pl-4 prose-ul:text-foreground-secondary
                             prose-li:my-0 prose-li:marker:text-foreground-secondary

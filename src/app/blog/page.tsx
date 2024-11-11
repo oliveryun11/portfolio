@@ -15,12 +15,11 @@ export default function BlogPage() {
                     <h2 className="text-2xl font-bold mb-6">Blog</h2>
                     <div className="grid gap-6">
                         {posts.map((post) => (
-                            <article 
-                                key={post.slug}
-                                className="border border-secondary rounded-lg p-6 transition-all duration-200 
+                            <Link href={`/blog/${post.slug}`} key={post.slug}>
+                                <article 
+                                    className="border border-secondary rounded-lg p-6 transition-all duration-200 
                                          hover:bg-secondary/20 hover:border-primary space-y-4"
                             >
-                                <Link href={`/blog/${post.slug}`}>
                                     <h2 className="text-xl font-bold mb-2">{post.title}</h2>
                                     <time className="text-foreground-secondary text-sm block mb-2">
                                         {new Date(post.date).toLocaleDateString('en-US', {
@@ -30,8 +29,8 @@ export default function BlogPage() {
                                         })}
                                     </time>
                                     <p className="text-foreground-secondary">{post.excerpt}</p>
-                                </Link>
-                            </article>
+                                </article>
+                            </Link>
                         ))}
                     </div>
                 </div>

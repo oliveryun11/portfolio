@@ -1,5 +1,7 @@
 import { projects } from "@/lib/project";
 import { HiArrowUpRight } from "react-icons/hi2";
+import Link from "next/link";
+
 export default function Projects() {
 
     return (
@@ -8,8 +10,7 @@ export default function Projects() {
             <div className="grid gap-6">
                 {projects.map((project) => (
                         <article 
-                            className="border border-secondary rounded-lg p-6 transition-all duration-200 
-                                       hover:bg-secondary/20 hover:border-primary space-y-4"
+                            className="border border-secondary rounded-lg p-6 space-y-4"
                             key={project.title}
                         >
                             <div>
@@ -29,17 +30,50 @@ export default function Projects() {
                                 ))}
                             </div>
 
+                            <div className="flex gap-4">
+                            {project.blogPost && (
+                                <Link
+                                    href={`/blog/${project.blogPost}`}
+                                    className="inline-flex items-center text-sm hover:text-foreground text-foreground-secondary"
+                                >
+                                    <HiArrowUpRight className="w-4 h-4"/>
+                                    <span className="ml-1">Read More</span>
+                                </Link>
+                            )}
                             {project.githubLink && (
                                 <a
                                     href={project.githubLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center text-sm hover:text-foreground text-foreground-secondary"
+                                    className="inline-flex items-center text-sm hover:text-foreground text-foreground-secondary"
                                 >
                                     <HiArrowUpRight className="w-4 h-4"/>
                                     <span className="ml-1">View on GitHub</span>
                                 </a>
                             )}
+                            {project.paperLink && (
+                                <a
+                                    href={project.paperLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center text-sm hover:text-foreground text-foreground-secondary"
+                                >
+                                    <HiArrowUpRight className="w-4 h-4"/>
+                                    <span className="ml-1">View Paper</span>
+                                </a>
+                            )}
+                            {project.websiteLink && (
+                                <a
+                                    href={project.websiteLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center text-sm hover:text-foreground text-foreground-secondary"
+                                >
+                                    <HiArrowUpRight className="w-4 h-4"/>
+                                    <span className="ml-1">View Website</span>
+                                </a>
+                            )}
+                            </div>
                         </article>
                 ))}
             </div>
