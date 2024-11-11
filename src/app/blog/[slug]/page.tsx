@@ -9,11 +9,11 @@ interface Props {
     params: {
         slug: string;
     };
+    searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await Promise.resolve(params);
-    const blogData = getBlogPostWithProject(slug);
+    const blogData = getBlogPostWithProject(params.slug);
     if (!blogData) {
         return {
             title: 'Post Not Found'
@@ -26,8 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPost({ params }: Props) {
-    const { slug } = await Promise.resolve(params);
-    const blogData = getBlogPostWithProject(slug);
+    const blogData = getBlogPostWithProject(params.slug);
     
     if (!blogData) {
         notFound();
@@ -44,7 +43,7 @@ export default async function BlogPost({ params }: Props) {
                 <article className="py-6">
                     <header className="space-y-4 mb-8">
                         <h1 className="text-2xl font-bold">{post.title}</h1>
-                        <div className="flex gap-4 text-sm text-foreground/60">
+                        <div className="flex gap-4 text-sm text-foreground-secondary">
                             <time>
                                 {new Date(post.date).toLocaleDateString('en-US', {
                                     year: 'numeric',
@@ -58,11 +57,10 @@ export default async function BlogPost({ params }: Props) {
                     
                     <div 
                         className="prose prose-invert max-w-none space-y-4
-                            prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-6
-                            prose-p:text-foreground-secondary prose-p:my-0
-                            prose-ul:my-2 prose-ul:pl-4 prose-ul:text-foreground-secondary
-                            prose-li:my-0 prose-li:marker:text-foreground-secondary
-                            prose-a:text-foreground-secondary prose-a:hover:text-foreground"
+                                 prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-8
+                                 prose-p:text-foreground-secondary prose-p:my-0
+                                 prose-ul:my-2 prose-ul:pl-4 prose-ul:text-foreground-secondary
+                                 prose-li:my-0 prose-li:marker:text-foreground-secondary"
                         dangerouslySetInnerHTML={{ __html: htmlContent }}
                     />
                 </article>
