@@ -8,7 +8,7 @@ export default function BlogPage() {
 
     return (
         <div className="min-h-screen flex justify-center text-foreground">
-            <div className="flex flex-col justify-start w-[600px]">
+            <div className="flex flex-col justify-start w-full max-w-[600px] px-6 md:px-0">
                 <Nav />
                 
                 <div className="py-6">
