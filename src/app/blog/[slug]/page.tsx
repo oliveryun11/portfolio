@@ -1,6 +1,5 @@
 import { getBlogPostWithProject } from '@/lib/blog';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';

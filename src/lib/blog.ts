@@ -17,7 +17,7 @@ export function getBlogPost(slug: string): BlogPost | null {
             content,
             ...frontmatter
         };
-    } catch (error) {
+    } catch {
         return null;
     }
 }
