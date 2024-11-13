@@ -13,7 +13,7 @@ export const projects: Project[] = [
         title: "Poker Bots",
         description: "Built bankroll logging to AWS s3 for frontend livestreaming and optimized the matchmaking algorithm for the CMU DSC PokerAI competition.",
         technologies: ["Python", "AWS"],
-        websiteLink: "https://cmudsc.com"
+        websiteLink: "https://poker.cmudsc.com"
     },
     {
         id: 'meta-learning',
