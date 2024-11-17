@@ -9,15 +9,20 @@ export default function About() {
                 </p>
                 
                 <p>
-                    I&apos;m passionate about machine learning, data science, and software development. 
-                    Currently, I work as a Teaching Assistant for CMU&apos;s Principles of Imperative 
+                    I work as a Teaching Assistant for CMU&apos;s Principles of Imperative 
                     Computation course and serve as VP of Finance for the CMU Data Science Club.
                 </p>
 
                 <p>
-                    My interests span from developing novel ML applications to building efficient 
-                    backend systems. I enjoy tackling complex problems and creating solutions that 
-                    make a meaningful impact.
+                    My interests span from building efficient backend systems to the specific field
+                    of multimodal learning. I enjoy tackling complex problems and creating 
+                    solutions that make a meaningful impact.
+                </p>
+
+                <p>
+                    Currently, I&apos;m working on implementing a CLIP-like model from scratch using
+                    PyTorch. Through this project, I hope to learn more about methods in 
+                    multimodal learning. My process is documented in my blog.
                 </p>
             </div>
         </div>

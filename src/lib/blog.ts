@@ -48,3 +48,7 @@ export function getBlogPostWithProject(slug: string) {
 
     return { post, project };
 }
+
+export function getProjectRelatedPosts(projectId: string): BlogPost[] {
+    return getAllBlogPosts().filter(post => post.projectId === projectId);
+}

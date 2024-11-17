@@ -6,5 +6,5 @@ export interface Project {
     githubLink?: string;
     websiteLink?: string;
     paperLink?: string;
-    blogPost?: string;
+    blogPosts?: string[];
 }

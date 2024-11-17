@@ -27,7 +27,7 @@ export default function Footer() {
                     </a>
                 </li>
             </ul>
-            <div className="text-foreground-secondary">
+            <div className="text-foreground-secondary pb-4">
                 <p>© 2024 Oliver Yun</p>
             </div>
         </footer>
