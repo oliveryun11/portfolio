@@ -6,7 +6,8 @@ export const projects: Project[] = [
         title: "Contrastive Language-Image Pretrained Model",
         description: 'Implemented a smaller-scale CLIP-like model based on the paper "Learning Transferable Visual Models From Natural Language Supervision".',
         technologies: ["PyTorch", "Python", "Transformers", "Pandas"],
-        blogPosts: ["clip-dataset"]
+        blogPosts: ["clip-dataset"],
+        githubLink: "https://github.com/oliveryun11/clip"
     },
     {
         id: 'bart-synopsis',
