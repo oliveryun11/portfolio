@@ -25,7 +25,7 @@ export const projects: Project[] = [
     },
     {
         id: 'meta-learning',
-        title: "Meta-Learning Water-Level Prediction",
+        title: "Meta-Learning Based Water-Level Prediction",
         description: "A novel meta-learning approach for water-level prediction, achieving 65.81% lower mean squared error compared to traditional LSTM models. Published in IEEE Big Data Conference 2022.",
         technologies: ["Python", "PyTorch", "LSTM", "Meta-Learning"],
         githubLink: "https://github.com/oliveryun11/mewp",
