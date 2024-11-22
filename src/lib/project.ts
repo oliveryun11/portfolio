@@ -3,7 +3,7 @@ import { Project } from '@/types/project';
 export const projects: Project[] = [
     {
         id: 'clip',
-        title: "Contrastive Language-Image Pretrained Model",
+        title: "Contrastive Language-Image Pre-Training",
         description: 'Implemented a smaller-scale CLIP-like model based on the paper "Learning Transferable Visual Models From Natural Language Supervision".',
         technologies: ["PyTorch", "Python", "Transformers", "Pandas"],
         blogPosts: ["clip-dataset"],
