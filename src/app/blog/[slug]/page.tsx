@@ -102,7 +102,7 @@ export default async function BlogPost({ params }: Props) {
                             prose-p:text-foreground-secondary prose-p:my-0
                             prose-ul:my-2 prose-ul:pl-4 prose-ul:text-foreground-secondary
                             prose-li:my-0 prose-li:marker:text-foreground-secondary
-                            prose-a:text-foreground-secondary prose-a:hover:text-foreground"
+                            prose-a:text-foreground prose-a:no-underline prose-a:font-medium"
                         dangerouslySetInnerHTML={{ __html: htmlContent }}
                     />
                 </article>
