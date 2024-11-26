@@ -7,15 +7,17 @@ projectId: clip
 
 ## Introduction
 
+My code is available on [GitHub](https://github.com/oliveryun11/clip).
+
 Contrastive Learning Image Pre-Training (CLIP) represents a significant breakthrough in the field of 
 multimodal learning. The novelty of CLIP is in its approach to joining the embedding spaces of image 
-and text, as opposed to predicting a single label instead of training on predefined image
+and text, as opposed to predicting a single label and training on predefined image
 classifications. This allows the model to perform a wide range of visual tasks without specific 
 training, simply by understanding text descriptions.
 
 Given the impactful nature of CLIP, I decided it would be a good exercise to implement a smaller-scale
 version of the model from scratch. This would allow me to learn more about how to frame a multimodal
-problem, how to implement it, and how to effectively train it.
+problem, how to implement it, and how to effectively train the model.
 
 ## Overview
 
@@ -39,8 +41,8 @@ trying to keep the post concise).
 The LAION dataset is accessed through the Hugging Face datasets library, which provides efficient streaming
 capabilities. Rather than loading the entire dataset into memory, I stream samples on-demand.
 
-Additionally, to maintain training efficiency while streaming, I implemented a shuffle buffer that maintains a fixed-size
-pool of processed samples. 
+Additionally, to introduce some randomness into the training process, I implemented a shuffle buffer 
+that maintains a fixed-size pool of processed samples. 
 
 ### Shuffle Buffer
 
