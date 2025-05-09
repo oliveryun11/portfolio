@@ -11,7 +11,7 @@ export const projects: Project[] = [
     },
     {
         id: 'bart-synopsis',
-        title: "Anime Synopsis Generator",
+        title: "BART for Synopsis Generation",
         description: "A Bidirectional Auto-Regressive Transformer model that generates anime synopses based on genre inputs. Achieved a cross-entropy loss of 0.023 using the PyTorch and the transformers library.",
         technologies: ["PyTorch", "Python", "Transformers", "Pandas"],
         githubLink: "https://github.com/oliveryun11/anime-synopsis",

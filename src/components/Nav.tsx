@@ -5,11 +5,16 @@ export default function Nav() {
     <nav className="py-6 mt-8">
       <ul className="flex gap-6 justify-start text-foreground-secondary">
         <li>
-          <Link href="/" className="hover:text-foreground">Home</Link>
+          <Link href="#about" className="hover:text-foreground">About</Link>
         </li>
+        <li>
+          <Link href = "#projects" className="hover:text-foreground">Projects</Link>
+        </li>
+        {/*
         <li>
           <Link href="/blog" className="hover:text-foreground">Blog</Link>
         </li>
+        */}
         <li>
         <a 
             href="/resume.pdf" 
