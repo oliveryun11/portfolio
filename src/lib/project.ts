@@ -38,13 +38,6 @@ export const projects: Project[] = [
         githubLink: "https://github.com/oliveryun11/mewp",
         paperLink: "https://doi.org/10.1109/BigData55660.2022.10020854"
     },
-    {
-        id: 'portfolio',
-        title: "Portfolio Website",
-        description: "My personal portfolio website built with Next.js, TypeScript, and TailwindCSS. Features a blog, project showcase, and responsive design.",
-        technologies: ["Next.js", "TypeScript", "TailwindCSS"],
-        githubLink: "https://github.com/oliveryun11/portfolio",
-    }
 ];
 
 export function getProject(id: string): Project | null {
