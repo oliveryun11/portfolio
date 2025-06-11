@@ -1,14 +1,12 @@
 import { BlogPost as BlogPostType } from '@/types/blog';
 import { Project } from '@/types/project';
-import Link from 'next/link';
-import { RxDotFilled } from "react-icons/rx";
 
 interface Props {
     post: BlogPostType;
     project: Project;
 }
 
-export default function BlogPost({ post, project }: Props) {
+export default function BlogPost({ post }: Props) {
     return (
         <article className="py-6">
             <header className="space-y-4 mb-8">
