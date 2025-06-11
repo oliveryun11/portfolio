@@ -2,11 +2,18 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
     {
+        id: 'feat-viz',
+        title: "Feature Visualization for Mechanistic Interpretability",
+        description: "Investigated feature representation in AlexNet, providing evidence for the superposition hypothesis by identifying polysemantic neurons that activate for multiple, distinct concepts in a spatially-dependent manner.",
+        technologies: ["PyTorch", "Python", "Mechanistic Interpretability", "Computer Vision"],
+        blogPosts: ["feat-viz"],
+        githubLink: "https://github.com/oliveryun11/feat-viz"
+    },
+    {
         id: 'clip',
         title: "Contrastive Language-Image Pre-Training",
         description: 'Implemented a smaller-scale CLIP-like model based on the paper "Learning Transferable Visual Models From Natural Language Supervision".',
         technologies: ["PyTorch", "Python", "Transformers", "Pandas"],
-        blogPosts: ["clip-dataset"],
         githubLink: "https://github.com/oliveryun11/clip"
     },
     {

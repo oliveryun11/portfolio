@@ -1,42 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import { BlogPost, BlogFrontmatter } from '@/types/blog';
+import { BlogPost } from '@/types/blog';
 import { projects } from '@/lib/project';
-import matter from 'gray-matter'; // We'll need to install this
+
+import featViz from '@/content/blog/feat-viz';
+
+const blogPosts: BlogPost[] = [
+    featViz,
+];
 
 export function getBlogPost(slug: string): BlogPost | null {
-    try {
-        const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.mdx`);
-        const fileContent = fs.readFileSync(filePath, 'utf8');
-        const { data, content } = matter(fileContent);
-        
-        const frontmatter = data as BlogFrontmatter;
-        
-        return {
-            slug,
-            content,
-            ...frontmatter
-        };
-    } catch {
-        return null;
-    }
+    return blogPosts.find(post => post.slug === slug) || null;
 }
 
 export function getAllBlogPosts(): BlogPost[] {
-    const blogDir = path.join(process.cwd(), 'src/content/blog');
-    const files = fs.readdirSync(blogDir);
-    
-    const posts = files
-        .filter(filename => filename.endsWith('.mdx'))
-        .map(filename => {
-            const slug = filename.replace('.mdx', '');
-            const post = getBlogPost(slug);
-            return post;
-        })
-        .filter((post): post is BlogPost => post !== null)
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    
-    return posts;
+    return blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getBlogPostWithProject(slug: string) {
