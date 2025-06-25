@@ -4,7 +4,7 @@ import Image from 'next/image';
 const post: BlogPost = {
   slug: 'feat-viz',
   title: 'Feature Visualization for Mechanistic Interpretability',
-  date: '2025-06-10',
+  date: '2025-06-24',
   excerpt:
     'Investigating feature representation in AlexNet and developing a feature visualization pipeline to understand neural network interpretability.',
   projectId: 'feat-viz',
