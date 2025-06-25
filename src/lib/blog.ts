@@ -3,28 +3,28 @@ import { projects } from '@/lib/project';
 
 import featViz from '@/content/blog/feat-viz';
 
-const blogPosts: BlogPost[] = [
-    featViz,
-];
+const blogPosts: BlogPost[] = [featViz];
 
 export function getBlogPost(slug: string): BlogPost | null {
-    return blogPosts.find(post => post.slug === slug) || null;
+  return blogPosts.find(post => post.slug === slug) || null;
 }
 
 export function getAllBlogPosts(): BlogPost[] {
-    return blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return blogPosts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 export function getBlogPostWithProject(slug: string) {
-    const post = getBlogPost(slug);
-    if (!post) return null;
+  const post = getBlogPost(slug);
+  if (!post) return null;
 
-    const project = projects.find(p => p.id === post.projectId);
-    if (!project) return null;
+  const project = projects.find(p => p.id === post.projectId);
+  if (!project) return null;
 
-    return { post, project };
+  return { post, project };
 }
 
 export function getProjectRelatedPosts(projectId: string): BlogPost[] {
-    return getAllBlogPosts().filter(post => post.projectId === projectId);
+  return getAllBlogPosts().filter(post => post.projectId === projectId);
 }

@@ -6,42 +6,42 @@ import { Metadata } from 'next';
 import BlogPost from '@/components/BlogPost';
 
 interface Props {
-    params: Promise<{
-        slug: string;
-    }>;
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const blogData = getBlogPostWithProject(slug);
-    if (!blogData) {
-        return {
-            title: 'Post Not Found'
-        };
-    }
+  const { slug } = await params;
+  const blogData = getBlogPostWithProject(slug);
+  if (!blogData) {
     return {
-        title: `${blogData.post.title} | Oliver Yun`,
-        description: blogData.post.excerpt
+      title: 'Post Not Found',
     };
+  }
+  return {
+    title: `${blogData.post.title} | Oliver Yun`,
+    description: blogData.post.excerpt,
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const { slug } = await params;
-    const blogData = getBlogPostWithProject(slug);
-    
-    if (!blogData) {
-        notFound();
-    }
-    
-    const { post, project } = blogData;
+  const { slug } = await params;
+  const blogData = getBlogPostWithProject(slug);
 
-    return (
-        <div className="min-h-screen flex justify-center text-foreground">
-            <div className="flex flex-col justify-start w-full max-w-[600px] px-6 md:px-0">
-                <BlogNav />
-                <BlogPost post={post} project={project} />
-                <Footer />
-            </div>
-        </div>
-    );
+  if (!blogData) {
+    notFound();
+  }
+
+  const { post, project } = blogData;
+
+  return (
+    <div className="min-h-screen flex justify-center text-foreground">
+      <div className="flex flex-col justify-start w-full max-w-[600px] px-6 md:px-0">
+        <BlogNav />
+        <BlogPost post={post} project={project} />
+        <Footer />
+      </div>
+    </div>
+  );
 }

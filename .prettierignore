@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Configuration files that should not be formatted
+package-lock.json
+*.min.js
+*.min.css
+
+# Generated files
+next-env.d.ts 

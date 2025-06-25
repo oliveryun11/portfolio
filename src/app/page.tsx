@@ -1,7 +1,7 @@
-import Nav from "@/components/Nav";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Footer from "@/components/Footer";
+import Nav from '@/components/Nav';
+import About from '@/components/About';
+import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <div className="min-h-screen flex justify-center text-foreground">
