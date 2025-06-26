@@ -60,9 +60,9 @@ const post: BlogPost = {
         developers can perform targeted intervention on the model to modify
         specific behaviors while maintaining overall functionality. For
         instance, one may use MI to find that a certain direction in activation
-        space dishonest responses made by an LLM. Taking away the projection of
-        the activation in this direction may therefore reduce dishonest behavior
-        in the LLM.
+        space corresponds to dishonest responses made by an LLM. Taking away the
+        projection of the activation in this direction may therefore reduce
+        dishonest behavior in the LLM.
       </p>
 
       <p>
@@ -182,7 +182,7 @@ const post: BlogPost = {
 
       <p>
         Introducing image transformations prior to passing the image through the
-        model can be interpreted as be modeling such differences between
+        model can be interpreted as modeling such differences between
         different instances of features: a crop and resize can model a feature
         occurring at different distances and sizes, a rotation can model a
         feature occurring at different angles, and introducing jitter to the
@@ -246,7 +246,7 @@ const post: BlogPost = {
       <div>
         <p>
           <strong>Convolutional Layer 1</strong>: Detects simple colors or
-          edges, such diagonal lines of varying thickness colors. Note that
+          edges, such as diagonal lines of varying thickness colors. Note that
           channels 0 and 2 show essentially the same texture with just the lines
           going in different directions. This demonstrates that channels are not
           robust to rotations in the input image.
@@ -294,8 +294,8 @@ const post: BlogPost = {
           textures, but more complex than that of convolutional layer 1. In
           particular, more colors are involved, and the textures appear to be of
           slightly larger scale (this should be expected as the second layer
-          convolutes over the first layer, so each neuron should naturally
-          respond to larger group of pixels in the original image).
+          convolves over the first layer, so each neuron should naturally
+          respond to a larger group of pixels in the original image).
         </p>
       </div>
 
@@ -379,7 +379,7 @@ const post: BlogPost = {
 
       <div>
         <p>
-          <strong>Convolutional Layer 4</strong>: Similar with convolutional
+          <strong>Convolutional Layer 4</strong>: Similar to convolutional
           layer 3, feature visualizations produced by layer 4 show shapes and
           parts of objects.
         </p>
@@ -535,7 +535,7 @@ const post: BlogPost = {
         theories. Our analysis confirms the established theory of hierarchical
         feature detection by Convolutional Neural Networks. Additionally, we
         find evidence of polysemanticality and superposition, by identifying
-        neurons that seem to respond to multiple underrated features. These
+        neurons that seem to respond to multiple unrelated features. These
         findings establish mechanistic interpretability as a powerful method for
         understanding the internal algorithms of neural networks and verifying
         the principles that make specific architectures effective.
