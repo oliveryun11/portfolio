@@ -182,13 +182,13 @@ const post: BlogPost = {
 
       <p>
         Introducing image transformations prior to passing the image through the
-        model can be interpreted as modeling such differences between
-        different instances of features: a crop and resize can model a feature
-        occurring at different distances and sizes, a rotation can model a
-        feature occurring at different angles, and introducing jitter to the
-        image can model a feature occurring in different focus. Doing so ensures
-        that the produced visualization is robust to these transformations and
-        therefore produces a more interpretable output.
+        model can be interpreted as modeling such differences between different
+        instances of features: a crop and resize can model a feature occurring
+        at different distances and sizes, a rotation can model a feature
+        occurring at different angles, and introducing jitter to the image can
+        model a feature occurring in different focus. Doing so ensures that the
+        produced visualization is robust to these transformations and therefore
+        produces a more interpretable output.
       </p>
 
       <h4>Color Decorrelation</h4>
@@ -379,9 +379,9 @@ const post: BlogPost = {
 
       <div>
         <p>
-          <strong>Convolutional Layer 4</strong>: Similar to convolutional
-          layer 3, feature visualizations produced by layer 4 show shapes and
-          parts of objects.
+          <strong>Convolutional Layer 4</strong>: Similar to convolutional layer
+          3, feature visualizations produced by layer 4 show shapes and parts of
+          objects.
         </p>
       </div>
 
