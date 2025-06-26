@@ -33,10 +33,10 @@ export default function Projects() {
                         <li key={blogPost}>
                           <Link
                             href={`/blog/${blogPost}`}
-                            className="text-foreground-secondary hover:text-foreground flex items-center transition-colors duration-200 hover:bg-secondary/10 rounded px-2 py-1 -mx-2 group font-medium"
+                            className="inline-flex items-center text-sm hover:text-foreground text-foreground-secondary font-medium transition-colors duration-200"
                           >
-                            <span>{post.title}</span>
-                            <HiArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            <HiArrowUpRight className="w-4 h-4" />
+                            <span className="ml-1">{post.title}</span>
                           </Link>
                         </li>
                       )
