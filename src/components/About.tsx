@@ -11,8 +11,8 @@ export default function About() {
         <p>
           During the summer of 2025, I was a Software Development Engineer
           Intern at Amazon. I also worked as a Teaching Assistant for CMU&apos;s
-          Principles of Imperative Computation course and serve as Director of
-          Competitions for the CMU Data Science Club.
+          Principles of Imperative Computation course and currently serve as
+          Director of Competitions for the CMU Data Science Club.
         </p>
       </div>
     </div>
