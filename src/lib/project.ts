@@ -31,20 +31,20 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/oliveryun11/docu-rag',
   },
   {
-    id: 'bart-synopsis',
-    title: 'BART for Synopsis Generation',
-    description:
-      'A Bidirectional Auto-Regressive Transformer model that generates anime synopses based on genre inputs. Achieved a cross-entropy loss of 0.023 using the PyTorch and the transformers library.',
-    technologies: ['PyTorch', 'Python', 'Transformers', 'Pandas'],
-    githubLink: 'https://github.com/oliveryun11/anime-synopsis',
-  },
-  {
     id: 'clip',
     title: 'Contrastive Language-Image Pre-Training',
     description:
       'Implemented a smaller-scale CLIP-like model based on the paper "Learning Transferable Visual Models From Natural Language Supervision".',
     technologies: ['PyTorch', 'Python', 'Transformers', 'Pandas'],
     githubLink: 'https://github.com/oliveryun11/clip',
+  },
+  {
+    id: 'bart-synopsis',
+    title: 'BART for Synopsis Generation',
+    description:
+      'A Bidirectional Auto-Regressive Transformer model that generates anime synopses based on genre inputs. Achieved a cross-entropy loss of 0.023 using the PyTorch and the transformers library.',
+    technologies: ['PyTorch', 'Python', 'Transformers', 'Pandas'],
+    githubLink: 'https://github.com/oliveryun11/anime-synopsis',
   },
   {
     id: 'poker-bots',
