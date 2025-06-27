@@ -16,12 +16,19 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/oliveryun11/feat-viz',
   },
   {
-    id: 'clip',
-    title: 'Contrastive Language-Image Pre-Training',
+    id: 'docu-rag',
+    title: 'Retrieval-Augmented Generation for Documentation Search',
     description:
-      'Implemented a smaller-scale CLIP-like model based on the paper "Learning Transferable Visual Models From Natural Language Supervision".',
-    technologies: ['PyTorch', 'Python', 'Transformers', 'Pandas'],
-    githubLink: 'https://github.com/oliveryun11/clip',
+      'Built a full-stack RAG chat application with automated document processing, Google Gemini embeddings, and ChromaDB vector storage to answer library documentation questions and help with debugging queries.',
+    technologies: [
+      'Python',
+      'React',
+      'RAG',
+      'FastAPI',
+      'ChromaDB',
+      'Full-Stack',
+    ],
+    githubLink: 'https://github.com/oliveryun11/docu-rag',
   },
   {
     id: 'bart-synopsis',
@@ -30,6 +37,14 @@ export const projects: Project[] = [
       'A Bidirectional Auto-Regressive Transformer model that generates anime synopses based on genre inputs. Achieved a cross-entropy loss of 0.023 using the PyTorch and the transformers library.',
     technologies: ['PyTorch', 'Python', 'Transformers', 'Pandas'],
     githubLink: 'https://github.com/oliveryun11/anime-synopsis',
+  },
+  {
+    id: 'clip',
+    title: 'Contrastive Language-Image Pre-Training',
+    description:
+      'Implemented a smaller-scale CLIP-like model based on the paper "Learning Transferable Visual Models From Natural Language Supervision".',
+    technologies: ['PyTorch', 'Python', 'Transformers', 'Pandas'],
+    githubLink: 'https://github.com/oliveryun11/clip',
   },
   {
     id: 'poker-bots',
