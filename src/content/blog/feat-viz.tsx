@@ -1,5 +1,7 @@
 import { BlogPost } from '@/types/blog';
 import Image from 'next/image';
+import Link from 'next/link';
+import { HiArrowUpRight } from 'react-icons/hi2';
 
 const post: BlogPost = {
   slug: 'feat-viz',
@@ -12,18 +14,27 @@ const post: BlogPost = {
     <>
       <p>
         My code is available on{' '}
-        <a
+        <Link
           href="https://github.com/oliveryun11/feat-viz"
-          className="hover:text-foreground font-medium transition-colors duration-200"
+          className="inline-flex items-center hover:text-foreground text-foreground-secondary transition-colors duration-200"
         >
           GitHub
-        </a>
+          <HiArrowUpRight className="w-4 h-4 ml-1" />
+        </Link>
+        . This project was done with reference to{' '}
+        <Link
+          href="https://distill.pub/2017/feature-visualization/"
+          className="inline-flex items-center hover:text-foreground text-foreground-secondary transition-colors duration-200"
+        >
+          Olah&apos;s article on feature visualization
+          <HiArrowUpRight className="w-4 h-4" />
+        </Link>
         .
       </p>
 
       <p>
         Mechanistic Interpretability (MI) is a field of study that seeks to
-        understand the internal algorithms of neural networks. This is done by
+        understand the internal workings of neural networks. This is done by
         identifying the specific algorithms and representations the network uses
         to produce its outputs. Feature visualization is one method of MI used
         to understand models that take images as input. In this blog, we apply
@@ -38,13 +49,12 @@ const post: BlogPost = {
         As AI models become more complex and are applied to higher-risk domains,
         there is an increasing need to better understand model behavior.
         Increasing model interpretability enables transparency, accountability,
-        and responsibility in model usage. By understanding how a model makes
-        certain decisions, one can determine whether problematic outcomes were
-        the result of inadequate data or biases in the model itself.
-        Furthermore, interpretability aids in model iteration and development.
-        By allowing developers to more directly identify model drawbacks and
-        vulnerabilities, interpretable models allow developers to make precise
-        adjustments to improve performance.
+        and responsibility in model usage. By studying how a model makes certain
+        decisions, one can better understand how problematic outcomes arise or
+        even predict them. Furthermore, interpretability aids in model iteration
+        and development. By allowing developers to directly identify model
+        drawbacks and vulnerabilities, interpretable models allow developers to
+        make precise adjustments to improve performance.
       </p>
 
       <p>
@@ -79,28 +89,29 @@ const post: BlogPost = {
         A major hypothesis in MI is that models represent features as basis
         directions in activation space. For instance, in image classification,
         this activation space can be the last layer of the model, where each
-        feature is a category for classification and each basis direction is the
-        output of each node. Output node 36 of the AlexNet model would
-        correspondingly represent the &quot;terrapin-ness&quot; feature of the
-        original input image. This idea can also be applied to hidden layers,
-        where certain basis directions can represent the &quot;jaggedness&quot;
-        or &quot;roughness&quot; etc. of the input image.
+        feature is a category for classification and each basis direction
+        corresponds to the output of each neuron. Output neuron 36 of the
+        AlexNet model would correspondingly represent the
+        &quot;terrapin-ness&quot; feature of the original input image. This idea
+        can also be applied to hidden layers, where certain basis directions can
+        represent the &quot;jaggedness&quot; or &quot;roughness&quot; etc. of
+        the input image.
       </p>
 
       <p>
         Assuming this hypothesis, we can perform feature visualization by
         optimization. We can attempt to optimize an input image to maximize the
-        value of a certain feature and gain insight into what characteristics
-        the model is learning to aid in producing an output. We apply this idea
-        to the AlexNet model, trained on the ImageNet dataset. We begin by
-        explaining how to produce image optimizations that are interpretable,
-        then proceed to perform feature visualization on different activation
-        spaces.
+        value of a certain direction in activation space and gain insight into
+        what characteristics this direction represents and what the model is
+        learning to aid in producing its output. We apply this idea to the
+        AlexNet model, trained on the ImageNet dataset. We begin by explaining
+        how to produce feature visualizations that are interpretable, then
+        proceed to perform feature visualization on different activation spaces.
       </p>
 
       <h3>Interpretable Feature Visualization</h3>
       <p>
-        The most basic approach to feature visualization is to optimize an input
+        The most naive approach to feature visualization is to optimize an input
         image for certain neurons. However, we find that in most cases, just
         this approach alone is not enough to produce images that are
         interpretable. Certain shapes and textures can still be discerned from
@@ -109,7 +120,41 @@ const post: BlogPost = {
         used. Similar to Olah&apos;s article on feature visualization, all
         visualizations shown in this article use both transformation robustness
         and color decorrelation to improve the interpretability of
-        visualizations unless otherwise stated.
+        visualizations.
+      </p>
+
+      <h4>Image Transformations</h4>
+      <p>
+        Features never occur in images in the exact same way. A terrapin&apos;s
+        shell may be seen in an image from different distances, at different
+        angles, and in different focus. Different terrapins would also have
+        shells that can look slightly different due to genetic differences.
+        Neurons in the model must respond to features regardless of these
+        differences, and therefore, one may argue that an input image that
+        maximizes the value of a neuron while robust to these differences can be
+        said to be a closer representation of what the neuron is learning than
+        an image that is not robust.
+      </p>
+
+      <p>
+        Introducing image transformations prior to passing the image through the
+        model can be interpreted as modeling such differences between different
+        instances of features: a crop and resize can model a feature occurring
+        at different distances and sizes, a rotation can model a feature
+        occurring at different angles, and introducing jitter to the image can
+        model a feature occurring in different focus. Doing so ensures that the
+        produced visualization is robust to these transformations and therefore
+        produces a more interpretable output.
+      </p>
+
+      <h4>Color Decorrelation</h4>
+      <p>
+        The natural encoding of an image using RGB color values has been shown
+        to be highly correlated. An image with a high red value has a higher
+        probability of having a high green and blue value. This results in some
+        parts of the data being over emphasized and others underemphasized.
+        Performing color decorrelation on the image prior to input has been
+        shown to reduce high frequency noise.
       </p>
 
       <div className="flex flex-wrap gap-4 my-6 justify-start">
@@ -167,41 +212,7 @@ const post: BlogPost = {
         </div>
       </div>
 
-      <h4>Image Transformations</h4>
-      <p>
-        Features never occur in images in the exact same way. A terrapin&apos;s
-        shell may be seen in an image from different distances, at different
-        angles, and in different focus. Different terrapins would also have
-        shells that can look slightly different due to genetic differences.
-        Neurons in the model must respond to features regardless of these
-        differences, and therefore, one may argue that an input image that
-        maximizes the value of a neuron while robust to these differences can be
-        said to be a closer representation of what the neuron is learning than
-        an image that is not robust.
-      </p>
-
-      <p>
-        Introducing image transformations prior to passing the image through the
-        model can be interpreted as modeling such differences between different
-        instances of features: a crop and resize can model a feature occurring
-        at different distances and sizes, a rotation can model a feature
-        occurring at different angles, and introducing jitter to the image can
-        model a feature occurring in different focus. Doing so ensures that the
-        produced visualization is robust to these transformations and therefore
-        produces a more interpretable output.
-      </p>
-
-      <h4>Color Decorrelation</h4>
-      <p>
-        The natural encoding of an image using RGB color values has been shown
-        to be highly correlated. An image with a high red value has a higher
-        probability of having a high green and blue value. This results in some
-        parts of the data being over emphasized and others underemphasized.
-        Performing color decorrelation on the image prior to input has been
-        shown to reduce high frequency noise.
-      </p>
-
-      <h4>Optimization Objectives</h4>
+      <h3>Optimization Objectives</h3>
       <p>
         Different optimization objectives can expose different aspects of what
         the model is learning and in which neurons or layers. The AlexNet
