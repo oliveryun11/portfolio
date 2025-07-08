@@ -295,7 +295,7 @@ const post: BlogPost = {
         &quot;google-t5/t5-base&quot; model. Our results show that the NSCL
         model generalizes far better to more complex reasoning. On the
         multi-step reasoning questions in the test set, the NSCL model achieves
-        91.23% accuracy, dramatically outperforming the baseline which only
+        91.23% accuracy, outperforming the baseline which only
         reaches 66.67% accuracy.
       </p>
 
