@@ -243,17 +243,18 @@ const post: BlogPost = {
         This module is responsible for converting the raw textual database into
         structured vector representations for each entity. Using a pretrained
         BERT model, the module first reads the entire textual database and uses
-        a mean pooling over the generated token embeddings to compute a single global
-        embedding. This vector is designed to capture the overall context of the
-        knowledge base. Next, a pre-trained Named-Entity Recognition (NER) model
-        extracts entity spans of interest from the text (e.g., Jimmy). Other
-        entity spans (e.g. Washington, engineer) are attributes of these spans
-        and therefore do not require an individual entity embedding. For each
-        entity span, mean pooling is used over BERT&apos;s token embedding
-        output to produce a local span embedding that captures the entity&apos;s
-        specific context. Finally, the global embedding is concatenated with
-        each entity&apos;s span embedding to produce a context-aware entity
-        embedding that is passed forward to be used in other modules.
+        a mean pooling over the generated token embeddings to compute a single
+        global embedding. This vector is designed to capture the overall context
+        of the knowledge base. Next, a pre-trained Named-Entity Recognition
+        (NER) model extracts entity spans of interest from the text (e.g.,
+        Jimmy). Other entity spans (e.g. Washington, engineer) are attributes of
+        these spans and therefore do not require an individual entity embedding.
+        For each entity span, mean pooling is used over BERT&apos;s token
+        embedding output to produce a local span embedding that captures the
+        entity&apos;s specific context. Finally, the global embedding is
+        concatenated with each entity&apos;s span embedding to produce a
+        context-aware entity embedding that is passed forward to be used in
+        other modules.
       </p>
 
       <h4>Concept Learner</h4>
@@ -294,10 +295,10 @@ const post: BlogPost = {
       <p>
         We evaluate the proposed NSCL model against a fine-tuned
         &quot;google-t5/t5-base&quot; model. Our results show that the NSCL
-        model generalizes far better to more complex reasoning. On the
-        multi-step reasoning questions in the test set, the NSCL model achieves
-        91.23% accuracy, outperforming the T5 model baseline which reaches
-        66.67% accuracy.
+        model generalizes far better to multi-step reasoning. On the multi-step
+        reasoning questions in the test set, the NSCL model achieves 91.23%
+        accuracy, outperforming the T5 model baseline which reaches 66.67%
+        accuracy.
       </p>
 
       <div className="flex justify-center my-6">
