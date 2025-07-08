@@ -243,13 +243,13 @@ const post: BlogPost = {
         This module is responsible for converting the raw textual database into
         structured vector representations for each entity. Using a pretrained
         BERT model, the module first reads the entire textual database and uses
-        an attention mechanism over the text to compute a single global
+        a mean pooling over the generated token embeddings to compute a single global
         embedding. This vector is designed to capture the overall context of the
         knowledge base. Next, a pre-trained Named-Entity Recognition (NER) model
         extracts entity spans of interest from the text (e.g., Jimmy). Other
         entity spans (e.g. Washington, engineer) are attributes of these spans
         and therefore do not require an individual entity embedding. For each
-        entity span, attention pooling is used over BERT&apos;s token embedding
+        entity span, mean pooling is used over BERT&apos;s token embedding
         output to produce a local span embedding that captures the entity&apos;s
         specific context. Finally, the global embedding is concatenated with
         each entity&apos;s span embedding to produce a context-aware entity
