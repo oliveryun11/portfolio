@@ -105,8 +105,8 @@ const post: BlogPost = {
         architecture achieves superior compositional generalization, confirming
         that an explicit reasoning framework is more robust for multi-step logic
         than standard end-to-end approaches. We conclude by discussing future
-        directions for building more scalable and generalist models by moving
-        beyond predefined domain knowledge.
+        directions for building more scalable and generalist neuro-symbolic
+        models by moving beyond predefined domain knowledge.
       </p>
 
       <h2>Overview</h2>
