@@ -21,13 +21,16 @@ const post: BlogPost = {
           GitHub
           <HiArrowUpRight className="w-4 h-4 ml-1" />
         </Link>
-        . This project was done with reference to{' '}
+        .
+      </p>
+      <p>
+        This project was done with reference to{' '}
         <Link
           href="https://distill.pub/2017/feature-visualization/"
           className="inline-flex items-center hover:text-foreground text-foreground-secondary transition-colors duration-200"
         >
-          Olah&apos;s article on feature visualization
-          <HiArrowUpRight className="w-4 h-4" />
+          Olah&apos;s work on feature visualization
+          <HiArrowUpRight className="w-4 h-4 ml-1" />
         </Link>
         .
       </p>

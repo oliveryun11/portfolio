@@ -2,8 +2,9 @@ import { BlogPost } from '@/types/blog';
 import { projects } from '@/lib/project';
 
 import featViz from '@/content/blog/feat-viz';
+import kbQa from '@/content/blog/kb-qa';
 
-const blogPosts: BlogPost[] = [featViz];
+const blogPosts: BlogPost[] = [featViz, kbQa];
 
 export function getBlogPost(slug: string): BlogPost | null {
   return blogPosts.find(post => post.slug === slug) || null;
