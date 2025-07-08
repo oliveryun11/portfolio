@@ -101,10 +101,10 @@ const post: BlogPost = {
         compositional generalization, where models are trained on one-step
         questions and tested on multi-step questions. Our NSCL model achieves
         91.23% accuracy, outperforming a fine-tuned T5 baseline which achieves
-        66.67% accuracy. Our findings demonstrate that this neuro-symbolic architecture
-        achieves superior compositional generalization, confirming that an
-        explicit reasoning framework is more robust for multi-step logic than
-        standard end-to-end approaches. We conclude by discussing future
+        66.67% accuracy. Our findings demonstrate that this neuro-symbolic
+        architecture achieves superior compositional generalization, confirming
+        that an explicit reasoning framework is more robust for multi-step logic
+        than standard end-to-end approaches. We conclude by discussing future
         directions for building more scalable and generalist models by moving
         beyond predefined domain knowledge.
       </p>
