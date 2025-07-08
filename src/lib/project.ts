@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: 'kb-qa',
     title: 'Neuro-Symbolic Concept Learning for Compositional Reasoning',
     description:
-      'Developed a neuro-symbolic concept learning framework for textual question answering that achieves superior compositional generalization, outperforming T5 baseline by 24.56% on multi-step reasoning tasks.',
+      'Developed a neuro-symbolic concept learning framework for textual question answering that achieves superior compositional generalization, outperforming the T5 model baseline by 24.56% on multi-step reasoning tasks.',
     technologies: ['PyTorch', 'Python', 'NLP', 'Neuro-Symbolic AI'],
     blogPosts: ['kb-qa'],
     githubLink: 'https://github.com/oliveryun11/kb-qa',
