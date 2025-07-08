@@ -121,7 +121,7 @@ const post: BlogPost = {
       </p>
 
       <p>
-        <strong>Interpretability:</strong> The "black-box" nature of end-to-end
+        <strong>Interpretability:</strong> The black-box nature of end-to-end
         models makes the reasoning process of LLMs opaque, hindering trust and
         diagnosability. Research on reasoning models shows that models do not
         always output their reasoning process in chain-of-thought prompting{' '}
@@ -143,11 +143,11 @@ const post: BlogPost = {
 
       <p>
         <strong>Hallucination:</strong> Another critical weakness of end-to-end
-        models is their tendency to 'hallucinate' instead of admitting
-        ignorance. Because an LLM's fundamental goal is to complete a text
-        sequence most plausibly, it lacks an inherent mechanism to verify its
-        knowledge or recognize when it is being asked to perform a task it was
-        not trained for.
+        models is their tendency to hallucinate instead of admitting ignorance.
+        Because an LLM&apos;s fundamental goal is to complete a text sequence
+        most plausibly, it lacks an inherent mechanism to verify its knowledge
+        or recognize when it is being asked to perform a task it was not trained
+        for.
       </p>
 
       <p>
@@ -159,15 +159,15 @@ const post: BlogPost = {
       </p>
 
       <p>
-        Our approach builds upon the Neuro-Symbolic Concept Learner (NSCL) , a
+        Our approach builds upon the Neuro-Symbolic Concept Learner (NSCL), a
         framework originally used for visual question answering that
         demonstrated data efficiency and compositional generalization{' '}
         <Cite n={1} />. While NSCL has inspired further research, its core
         principles of reasoning with concepts have not been applied to text-only
         domains. The current landscape for textual question answering is
-        dominated by the fine-tuning of end-to-end models like BART , which
+        dominated by the fine-tuning of end-to-end models like BART, which
         struggle with interpretability and novel multi-step reasoning.
-        Simultaneously, while there is growing interest in 'concept learning'
+        Simultaneously, while there is growing interest in concept learning
         within NLP, this work has largely been analytical—focused on probing
         pre-trained language models to understand what concepts they have
         implicitly learned—rather than building systems that use concepts to
@@ -182,8 +182,9 @@ const post: BlogPost = {
         In the context of our textual question answering (QA) task, we define a
         concept as an instance of a property belonging to an entity that is
         queried in the task. The property itself is referred to as an attribute.
-        For instance, if a question is "What is Jimmy's job?", the entity is
-        Jimmy, the attribute is job, and the specific concept could be engineer.
+        For instance, if a question is &quot;What is Jimmy&apos;s job?&quot;,
+        the entity is Jimmy, the attribute is job, and the specific concept
+        could be engineer.
       </p>
 
       <p>
@@ -192,11 +193,12 @@ const post: BlogPost = {
         corresponding attribute space. For example, the concepts engineer,
         writer, and doctor are embeddings in the job attribute space. To
         determine which concept applies to an entity, the model projects the
-        entity's embedding into the relevant attribute space, then performs
+        entity&apos;s embedding into the relevant attribute space, then performs
         operations such as cosine similarity to find the most similar concept.
-        Answering "What is Jimmy's job?" involves projecting the embedding for
-        Jimmy into the job space and determining that this vector has the
-        highest similarity to the learned concept embedding for engineer.
+        Answering &quot;What is Jimmy&apos;s job?&quot; involves projecting the
+        embedding for Jimmy into the job space and determining that this vector
+        has the highest similarity to the learned concept embedding for
+        engineer.
       </p>
 
       <h3>Experiment and Dataset</h3>
@@ -210,17 +212,19 @@ const post: BlogPost = {
         explicitly test for compositional generalization, we structure the
         train/test split based on reasoning complexity:
       </p>
+
       <p>
         The training set contains only questions requiring single-step
         reasoning. These questions query a direct attribute of a named entity.
-        For example, the question "What is Jimmy's job?" (Reasoning: Find Jimmy{' '}
-        {'->'} Query job).
+        For example, the question &quot;What is Jimmy&rsquo;s job?&quot;
+        (Reasoning: Find Jimmy {'->'} Query job).
       </p>
+
       <p>
         The test set contains only questions requiring multi-step, compositional
         reasoning. These questions require the model to filter by one attribute
-        and query another to determine the final answer. For example, "what
-        company does the Washington scientist work for?" (Reasoning: Find
+        and query another to determine the final answer. For example, &quot;what
+        company does the Washington scientist work for?&quot; (Reasoning: Find
         entities where location is Washington AND job is scientist {'->'} Take
         the resulting entity {'->'} Query company). This requires composing two
         concepts (Washington, scientist) to resolve the first part of the query
@@ -242,12 +246,12 @@ const post: BlogPost = {
         compute a single global embedding. This vector is designed to capture
         the overall context of the knowledge base. Next, a pre-trained
         Named-Entity Recognition (NER) model extracts entity spans of interest
-        from the text (e.g., "Jimmy"). Other entity spans ("Washington",
-        "engineer") are attributes of these spans and therefore do not require
-        an individual entity embedding. For each entity span, attention pooling
-        is used over its token embeddings to produce a local span embedding that
-        captures the entity's specific context. Finally, the global embedding is
-        concatenated with each entity's span embedding to produce a
+        from the text (e.g., Jimmy). Other entity spans (Washington, engineer)
+        are attributes of these spans and therefore do not require an individual
+        entity embedding. For each entity span, attention pooling is used over
+        its token embeddings to produce a local span embedding that captures the
+        entity&apos;s specific context. Finally, the global embedding is
+        concatenated with each entity&apos;s span embedding to produce a
         context-aware entity embedding that is used in other modules.
       </p>
 
@@ -288,11 +292,11 @@ const post: BlogPost = {
       <h2>Results</h2>
       <p>
         We evaluate the proposed NSCL model against a fine-tuned
-        `google-t5/t5-base` model. Our results show that the NSCL model
-        generalizes far better to more complex reasoning. On the multi-step
-        reasoning questions in the test set, the NSCL model achieves 91.23%
-        accuracy, dramatically outperforming the baseline which only reaches
-        66.67% accuracy.
+        &quot;google-t5/t5-base&quot; model. Our results show that the NSCL
+        model generalizes far better to more complex reasoning. On the
+        multi-step reasoning questions in the test set, the NSCL model achieves
+        91.23% accuracy, dramatically outperforming the baseline which only
+        reaches 66.67% accuracy.
       </p>
 
       <div className="flex justify-center my-6">
@@ -335,26 +339,26 @@ const post: BlogPost = {
 
       <p>
         These findings seem to suggest a new framework for continual model
-        learning. Our experiment demonstrates that a model's reasoning ability
-        can be successfully decoupled from its knowledge of specific concepts.
-        This allows for a more modular method for model updates. Instead of
-        retraining the whole system to acquire new knowledge, this architecture
-        allows for the reasoning engine to remain fixed while the library of
-        neuro-symbolic concepts is continually updated. The model can learn
-        representations for new concepts and add them to its knowledge base. The
-        existing reasoning engine can then leverage these new concepts in
-        complex reasoning problems, offering a scalable path toward building
+        learning. Our experiment demonstrates that a model&apos;s reasoning
+        ability can be successfully decoupled from its knowledge of specific
+        concepts. This allows for a more modular method for model updates.
+        Instead of retraining the whole system to acquire new knowledge, this
+        architecture allows for the reasoning engine to remain fixed while the
+        library of neuro-symbolic concepts is continually updated. The model can
+        learn representations for new concepts and add them to its knowledge
+        base. The existing reasoning engine can then leverage these new concepts
+        in complex reasoning problems, offering a scalable path toward building
         systems that can learn throughout their lifetime.
       </p>
 
       <p>
         Furthermore, a separate reasoning engine allows for high
-        interpretability. Through the model's reasoning trace, one can inspect
-        the step-by-step logic followed by the model, making its high-level
-        reasoning process transparent. Upon error, debugging is also simpler,
-        where by inspecting the reasoning trace and concept embeddings one can
-        identify errors in the model's reasoning process and underlying
-        knowledge, respectively.
+        interpretability. Through the model&apos;s reasoning trace, one can
+        inspect the step-by-step logic followed by the model, making its
+        high-level reasoning process transparent. Upon error, debugging is also
+        simpler, where by inspecting the reasoning trace and concept embeddings
+        one can identify errors in the model&apos;s reasoning process and
+        underlying knowledge, respectively.
       </p>
 
       <h2>Limitations</h2>
@@ -371,9 +375,10 @@ const post: BlogPost = {
         and the set of possible concepts associated with them. This mirrors a
         common limitation in many neuro-symbolic systems, which often depend on
         a predefined domain-specific language and a predefined set of concepts.
-        This necessity for a human to explicitly define the domain's structure
-        beforehand restricts the model's flexibility and its ability to scale to
-        more open-ended domains where concepts are not known in advance.
+        This necessity for a human to explicitly define the domain&apos;s
+        structure beforehand restricts the model&apos;s flexibility and its
+        ability to scale to more open-ended domains where concepts are not known
+        in advance.
       </p>
 
       <p>
@@ -431,8 +436,8 @@ const post: BlogPost = {
         generalization but also to a system that is highly interpretable, where
         the reasoning process can be verified step-by-step. Furthermore, this
         modularity suggests a promising paradigm for continual learning, where
-        new concepts can be added to the model's library without requiring a
-        full-scale retraining of its reasoning capabilities.
+        new concepts can be added to the model&apos;s library without requiring
+        a full-scale retraining of its reasoning capabilities.
       </p>
 
       <p>
